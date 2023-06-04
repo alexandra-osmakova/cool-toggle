@@ -32,6 +32,7 @@ body {
   height: 60px;
   border-radius: 60px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 /* Hide default HTML checkbox */
@@ -105,6 +106,15 @@ input:checked ~ .stars {
 
 /* unchecked decor */
 
+@keyframes move {
+  0%   {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.4) ;
+  }
+}
+
 .clouds {
   opacity: 1;
   -webkit-transition: .4s;
@@ -127,6 +137,10 @@ input:checked ~ .stars {
   border-radius: 50%;
   background-color: #adcbe1;
   position: absolute;
+  animation-name: move;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
 }
 
 .clouds--first-row .cloud:first-of-type {
@@ -147,16 +161,19 @@ input:checked ~ .stars {
 .clouds--first-row .cloud:nth-of-type(4) {
   bottom: 18px;
   right: -14px;
+  animation-duration: 8s;
 }
 
 .clouds--first-row .cloud:nth-of-type(5) {
   bottom: -4px;
   right: 0px;
+  animation-duration: 6s;
 }
 
 .clouds--first-row .cloud:nth-of-type(6) {
   bottom: -20px;
   right: 25px;
+  animation-duration: 4s;
 }
 
 .clouds--second-row .cloud, .clouds--second-row .cloud.big {
@@ -181,16 +198,19 @@ input:checked ~ .stars {
 .clouds--second-row .cloud:nth-of-type(4) {
   bottom: 14px;
   right: -18px;
+  animation-duration: 8s;
 }
 
 .clouds--second-row .cloud:nth-of-type(5) {
   bottom: -15px;
   right: 3px;
+  animation-duration: 6s;
 }
 
 .clouds--second-row .cloud:nth-of-type(6) {
   bottom: -32px;
   right: 19px;
+  animation-duration: 4s;
 }
 
 /* toggle-ball */
@@ -276,31 +296,50 @@ input:checked ~ .stars {
   transition: .4s;
 }
 
+@keyframes blink {
+  0%   {
+    transform: scale(0.2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+}
+
 .stars--item {
   position: absolute;
   left: 4px;
   top: 50%;
   color: #fff;
   font-size: 8px;
-  opacity: 0.8;
+  transform: scale(0.2);
+  opacity: 0.2;
+  animation-name: blink;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
 }
 
 .stars--item:nth-of-type(2) {
   left: 10%;
   top: 70%;
   font-size: 12px;
+  animation-duration: 7s;
 }
 
 .stars--item:nth-of-type(3) {
   left: 20%;
   top: 30%;
   font-size: 10px;
-
+  animation-duration: 6s;
 }
 
 .stars--item:nth-of-type(4) {
   left: 25%;
   top: 6px;
+  animation-duration: 5s;
 }
 
 
@@ -308,10 +347,12 @@ input:checked ~ .stars {
   left: 25%;
   top: 50%;
   font-size: 6px;
+  animation-duration: 4s;
 }
 
 .stars--item:nth-of-type(6) {
   font-size: 10px;
   left: 30%;
   top: 80%;
+  animation-duration: 3s;
 }
